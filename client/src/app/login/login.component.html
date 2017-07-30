@@ -1,0 +1,9 @@
+<html>
+  <body>
+<form name="myForm" (submit)="saveUser()">
+<label>Your Name</label>
+
+<input type="text" name="name" [(ngModel)]='newUser.name' #name='ngModel'/>
+<input type="submit" value="Login"/>
+</form>
+  </body></html>

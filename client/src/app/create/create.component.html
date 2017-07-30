@@ -1,0 +1,46 @@
+<a [routerLink] = "['/dashboard']"> Cancel</a>
+
+
+
+<h2> Create a new Poll </h2>
+
+<form #createPoll = "ngForm">
+<div class = "row">
+  <div class="col-sm-5">
+      Question:<br>
+      <input type = 'text' name='question' [(ngModel)] = "newQuestion.question"
+        #name = "ngModel"
+        required minlength = "15" class="form-control">
+  </div>
+  <div class="col-sm-6 error" *ngIf='!name.valid && (name.dirty || name.touched)'> Must be atleast 8 characters</div>
+</div>
+<br>
+  Option 1:<br>
+  <input type = 'text' name='option1' [(ngModel)] = "newQuestion.option1"
+    #option1 = "ngModel"
+    required >
+    <div class="col-sm-6 error" *ngIf='!option1.valid && (option1.dirty || option1.touched)'> Must be atleast 3 characters </div>
+    <br>
+
+  Option 2:<br>
+    <input type = 'text' name='option2' [(ngModel)] = "newQuestion.option2"
+    #option2 = "ngModel"
+    required>
+    <div class="col-sm-6 error" *ngIf='!option2.valid && (option2.dirty || option2.touched)'> Must be atleast 3 characters</div>
+    <br>
+  Option 3:<br>
+    <input type = 'text' name='option3' [(ngModel)] = "newQuestion.option3"
+    #option3 = "ngModel"
+    required >
+    <div class="col-sm-6 error" *ngIf='!option3.valid && (option3.dirty || option3.touched)'> Must be atleast 3 characters</div>
+    <br>
+
+  Option 4:<br>
+    <input type = 'text' name='option4' [(ngModel)] = "newQuestion.option4"
+    #option4 = "ngModel"
+    required >
+    <div class="col-sm-6 error" *ngIf='!option4.valid && (option4.dirty || option4.touched)'> Must be atleast 3 characters</div>
+    <br><br>
+     <button [disabled]="!createPoll.form.valid" (click)="onSubmit()">Create Poll</button>
+
+</form>

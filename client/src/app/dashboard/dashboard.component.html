@@ -1,0 +1,22 @@
+<a [routerLink] = "['/create']"> Create a new Poll</a> |
+ <a href= '/logout' >Logout</a>
+
+<router-outlet></router-outlet>
+
+<div class="search"><label>Search</label> <input type="text" id="search" name="searchBar" class="searchBar" [(ngModel)]="searchStr"></div>
+
+  <table border="1">
+	<tr>
+		<th>Name</th>
+		<th>Survey Question</th>
+		<th>Date Posted</th>
+		<th>Action</th>
+	</tr>
+<tr  *ngFor = "let question of questionList | filter:searchStr">
+  <td> {{question.user_name }} </td>
+  <td> <a href = "/poll/{{question._id}}"> {{ question.question }}</a> </td>
+  <td>{{ question.createdAt |date : "medium" }}</td>
+  <td *ngIf= "question.user_name == currentUser.name">
+    <button (click)="Delete(question)">Delete</button>
+    </td>
+</tr>

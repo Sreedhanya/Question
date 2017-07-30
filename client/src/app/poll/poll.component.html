@@ -1,0 +1,23 @@
+  <a [routerLink] = "['/dashboard']"> Go to Polls</a>
+
+
+
+
+<h3> {{ currentQuestion.question }} </h3>
+<p> Click the vote button to choose one </p>
+
+<table border="1">
+	<tr>
+		<th>Option</th>
+		<th>Current Count of Votes</th>
+		<th>Action</th>
+	</tr>
+  <tr *ngFor= "let option of currentQuestion.options; let i = index">
+  <td> {{option}} </td>
+  <td> {{currentQuestion.vote[i]}} </td>
+  <td> <button (click)="addVote(option)">Vote </button> </td>
+
+</tr>
+</table>
+
+
